@@ -1,0 +1,66 @@
+<Schema name="PRF">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Cidades">
+    <Hierarchy name="default" visible="true" hasAll="true" allMemberName="Tudo" primaryKey="cidades_id">
+      <Table name="dim_cidades" schema="dbo">
+      </Table>
+      <Level name="uf" visible="true" column="uf" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="UF">
+      </Level>
+      <Level name="municipio" visible="true" column="municipio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Munic&#237;pio">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Acidentes">
+    <Hierarchy name="default" visible="true" hasAll="true" allMemberName="Tudo" primaryKey="acidentes_id">
+      <Table name="dim_acidentes" schema="dbo">
+      </Table>
+      <Level name="tipo_acidente" visible="true" column="tipo_acidente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Tipo Acidente">
+      </Level>
+      <Level name="condicao_metereologica" visible="true" column="condicao_metereologica" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Condi&#231;&#227;o Metereol&#243;gica">
+      </Level>
+      <Level name="horario" visible="true" column="horario" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Hor&#225;rio">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Calendario">
+    <Hierarchy name="default" visible="true" hasAll="true" allMemberName="Tudo" primaryKey="data_acidente">
+      <Table name="dim_calendario" schema="dbo">
+      </Table>
+      <Level name="ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Ano">
+      </Level>
+      <Level name="dia_semana" visible="true" column="dia_semana" ordinalColumn="dia_da_semana" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Dia Semana">
+      </Level>
+      <Level name="data_acidente" visible="true" column="data_acidente" nameColumn="data_acidente" ordinalColumn="data_acidente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Data">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Pessoas">
+    <Hierarchy name="default" visible="true" hasAll="true" allMemberName="Tudo" primaryKey="pessoas_id">
+      <Table name="dim_pessoas" schema="dbo">
+      </Table>
+      <Level name="sexo" visible="true" column="sexo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Sexo">
+      </Level>
+      <Level name="idade" visible="true" column="idade" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Idade">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Acidentes" visible="true" cache="true" enabled="true">
+    <Table name="tabfato_acidentes" schema="dbo">
+    </Table>
+    <DimensionUsage source="Cidades" name="Cidades" visible="true" foreignKey="cidades_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Acidentes" name="Acidentes" visible="true" foreignKey="acidentes_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Calendario" name="Calendario" visible="true" foreignKey="data_acidente" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="quantidade_acidentes" column="qtd_acidente" aggregator="sum" caption="Quantidade Acidentes" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="Envolvimento Acidentes" visible="true" cache="true" enabled="true">
+    <Table name="tabfato_acidentes_envolvidos" schema="dbo">
+    </Table>
+    <DimensionUsage source="Pessoas" name="Pessoas" visible="true" foreignKey="pessoas_id" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="qtd_envolvidos" column="qtd_envolvidos" aggregator="sum" caption="Quantidade Envolvidos" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
