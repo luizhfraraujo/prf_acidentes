@@ -3,7 +3,9 @@
 ----------
 #### Ferramentas Utilizadas: ####
 ![Pentaho Data Integration v7](http://)
+
 ![Schema Workbench v3.13.0.0-25](http://)
+
 ![PostgreSQL v9.5](http://)
 
 ----------
