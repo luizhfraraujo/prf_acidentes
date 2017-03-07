@@ -13,7 +13,9 @@ Aqui ficam os arquivos utilizados na transformação. Os arquivos podem ser baixad
 * [2008](http://www1.prf.gov.br/arquivos/index.php/s/O805ZiovElHiwuY/download)
 * [2007](http://www1.prf.gov.br/arquivos/index.php/s/2chKvzigLF9iZhy/download)
 
-Os arquivos devem ser extraídos do zip para a esta pasta. Caso o arquivo acidentes2016.csv esteja com o nome acidentes2016_atual.csv, favor renomear para acidentes2016.csv.
+Os arquivos devem ser extraídos do zip para a esta pasta. Atentar ao ponto de informar o path do caminho na transformação, nos steps "Path Acidentes 2016 +" e "Path Acidentes 2007 - 2015".
+
+Caso o arquivo acidentes2016.csv esteja com o nome acidentes2016_atual.csv, favor renomear para acidentes2016.csv.
 
 Fonte: [Site Dados Abertos PRF (Agrupados por pessoas)](https://www.prf.gov.br/portal/dados-abertos/acidentes/acidentes)
 
