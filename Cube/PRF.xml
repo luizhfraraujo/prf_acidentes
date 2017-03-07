@@ -17,6 +17,20 @@
       </Level>
     </Hierarchy>
   </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="Pessoas">
+    <Hierarchy name="tipo" visible="true" hasAll="false" primaryKey="pessoas_id">
+      <Table name="dim_pessoas" schema="dw" alias="">
+      </Table>
+      <Level name="tipo_envolvimento" visible="true" column="tipo_envolvido" uniqueMembers="false" caption="Tipo Envolvimento">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="estado_fisico" visible="true" hasAll="false" primaryKey="pessoas_id">
+      <Table name="dim_pessoas" schema="dw" alias="">
+      </Table>
+      <Level name="estado_fisico" visible="true" column="estado_fisico" uniqueMembers="false" caption="Estado F&#237;sico">
+      </Level>
+    </Hierarchy>
+  </Dimension>
   <Cube name="Acidentes" visible="true" cache="true" enabled="true">
     <Table name="tabfato_acidentes" schema="dw" alias="">
     </Table>
@@ -31,6 +45,10 @@
     <Table name="tabfato_envolvidos" schema="dw">
     </Table>
     <DimensionUsage source="Cidades" name="Cidades" visible="true" foreignKey="cidades_id">
+    </DimensionUsage>
+    <DimensionUsage source="Pessoas" name="Pessoas" visible="true" foreignKey="pessoas_id">
+    </DimensionUsage>
+    <DimensionUsage source="Calendario" name="Calendario" visible="true" foreignKey="calendario_id">
     </DimensionUsage>
     <Measure name="quantidade_envolvidos" column="quantidade_envolvidos" aggregator="sum" caption="Quantidade Envolvidos" visible="true">
     </Measure>

@@ -1380,6 +1380,325 @@
     </step>
 
   <step>
+    <name>Cria Datas</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <calculation>
+      <field_name>ano</field_name>
+      <calc_type>YEAR_OF_DATE</calc_type>
+      <field_a>data</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>4</value_length>
+      <value_precision>0</value_precision>
+      <remove>N</remove>
+      <conversion_mask>0</conversion_mask>
+      <decimal_symbol>.</decimal_symbol>
+      <grouping_symbol>,</grouping_symbol>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>mes</field_name>
+      <calc_type>MONTH_OF_DATE</calc_type>
+      <field_a>data</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>2</value_length>
+      <value_precision>0</value_precision>
+      <remove>N</remove>
+      <conversion_mask>0</conversion_mask>
+      <decimal_symbol>.</decimal_symbol>
+      <grouping_symbol>,</grouping_symbol>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>dia_do_ano</field_name>
+      <calc_type>DAY_OF_YEAR</calc_type>
+      <field_a>data</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>3</value_length>
+      <value_precision>0</value_precision>
+      <remove>N</remove>
+      <conversion_mask>0</conversion_mask>
+      <decimal_symbol>.</decimal_symbol>
+      <grouping_symbol>,</grouping_symbol>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>dia_do_mes</field_name>
+      <calc_type>DAY_OF_MONTH</calc_type>
+      <field_a>data</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>2</value_length>
+      <value_precision>0</value_precision>
+      <remove>N</remove>
+      <conversion_mask>0</conversion_mask>
+      <decimal_symbol>.</decimal_symbol>
+      <grouping_symbol>,</grouping_symbol>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>semana_do_ano</field_name>
+      <calc_type>WEEK_OF_YEAR</calc_type>
+      <field_a>data</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>2</value_length>
+      <value_precision>0</value_precision>
+      <remove>N</remove>
+      <conversion_mask>0</conversion_mask>
+      <decimal_symbol>.</decimal_symbol>
+      <grouping_symbol>,</grouping_symbol>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>dia_da_semana</field_name>
+      <calc_type>DAY_OF_WEEK</calc_type>
+      <field_a>data</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Dimensionar Acidentes</name>
+    <type>DimensionLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <schema>dw</schema>
+      <table>dim_acidentes</table>
+      <connection>PRF</connection>
+      <commit>100</commit>
+      <update>Y</update>
+      <fields>
+        <key>
+          <name>id</name>
+          <lookup>id</lookup>
+        </key>
+        <date>
+          <name/>
+          <from>date_from</from>
+          <to>date_to</to>
+        </date>
+        <field>
+          <name>horario</name>
+          <lookup>horario</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>br</name>
+          <lookup>br</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>km</name>
+          <lookup>km</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>causa_acidente</name>
+          <lookup>causa_acidente</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>tipo_acidente</name>
+          <lookup>tipo_acidente</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>classificacao_acidente</name>
+          <lookup>classificacao_acidente</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>sentido_via</name>
+          <lookup>sentido_via</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>condicao_metereologica</name>
+          <lookup>condicao_metereologica</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>tipo_pista</name>
+          <lookup>tipo_pista</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>tracado_via</name>
+          <lookup>tracado_via</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>uso_solo</name>
+          <lookup>uso_solo</lookup>
+          <update>Insert</update>
+        </field>
+        <return>
+          <name>acidentes_id</name>
+          <rename/>
+          <creation_method>tablemax</creation_method>
+          <use_autoinc>N</use_autoinc>
+          <version>version</version>
+        </return>
+      </fields>
+      <sequence/>
+      <min_year>1900</min_year>
+      <max_year>2199</max_year>
+      <cache_size>5000</cache_size>
+      <preload_cache>N</preload_cache>
+      <use_start_date_alternative>N</use_start_date_alternative>
+      <start_date_alternative>none</start_date_alternative>
+      <start_date_field_name/>
+      <useBatch>N</useBatch>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Dimensionar Calendario</name>
+    <type>DimensionLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <schema>dw</schema>
+      <table>dim_calendario</table>
+      <connection>PRF</connection>
+      <commit>100</commit>
+      <update>Y</update>
+      <fields>
+        <key>
+          <name>data</name>
+          <lookup>data</lookup>
+        </key>
+        <date>
+          <name/>
+          <from>date_from</from>
+          <to>date_to</to>
+        </date>
+        <field>
+          <name>dia_semana</name>
+          <lookup>dia_semana</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>ano</name>
+          <lookup>ano</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>mes</name>
+          <lookup>mes</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>dia_do_ano</name>
+          <lookup>dia_do_ano</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>dia_do_mes</name>
+          <lookup>dia_do_mes</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>semana_do_ano</name>
+          <lookup>semana_do_ano</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>dia_da_semana</name>
+          <lookup>dia_da_semana</lookup>
+          <update>Insert</update>
+        </field>
+        <return>
+          <name>calendario_id</name>
+          <rename/>
+          <creation_method>tablemax</creation_method>
+          <use_autoinc>N</use_autoinc>
+          <version>version</version>
+        </return>
+      </fields>
+      <sequence/>
+      <min_year>1900</min_year>
+      <max_year>2199</max_year>
+      <cache_size>5000</cache_size>
+      <preload_cache>N</preload_cache>
+      <use_start_date_alternative>N</use_start_date_alternative>
+      <start_date_alternative>none</start_date_alternative>
+      <start_date_field_name/>
+      <useBatch>N</useBatch>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
     <name>Dimensionar Cidades</name>
     <type>DimensionLookup</type>
     <description/>
@@ -1447,6 +1766,213 @@
     <GUI>
       <xloc>928</xloc>
       <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Dimensionar pessoas</name>
+    <type>DimensionLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <schema>dw</schema>
+      <table>dim_pessoas</table>
+      <connection>PRF</connection>
+      <commit>100</commit>
+      <update>Y</update>
+      <fields>
+        <key>
+          <name>pesid</name>
+          <lookup>pesid</lookup>
+        </key>
+        <date>
+          <name/>
+          <from>date_from</from>
+          <to>date_to</to>
+        </date>
+        <field>
+          <name>tipo_envolvido</name>
+          <lookup>tipo_envolvido</lookup>
+          <update>Update</update>
+        </field>
+        <field>
+          <name>estado_fisico</name>
+          <lookup>estado_fisico</lookup>
+          <update>Update</update>
+        </field>
+        <field>
+          <name>idade</name>
+          <lookup>idade</lookup>
+          <update>Update</update>
+        </field>
+        <field>
+          <name>sexo</name>
+          <lookup>sexo</lookup>
+          <update>Update</update>
+        </field>
+        <field>
+          <name>nacionalidade</name>
+          <lookup>nacionalidade</lookup>
+          <update>Update</update>
+        </field>
+        <field>
+          <name>naturalidade</name>
+          <lookup>naturalidade</lookup>
+          <update>Update</update>
+        </field>
+        <return>
+          <name>pessoas_id</name>
+          <rename/>
+          <creation_method>tablemax</creation_method>
+          <use_autoinc>N</use_autoinc>
+          <version>version</version>
+        </return>
+      </fields>
+      <sequence/>
+      <min_year>1900</min_year>
+      <max_year>2199</max_year>
+      <cache_size>5000</cache_size>
+      <preload_cache>N</preload_cache>
+      <use_start_date_alternative>N</use_start_date_alternative>
+      <start_date_alternative>none</start_date_alternative>
+      <start_date_field_name/>
+      <useBatch>N</useBatch>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Dimens&#xf5;es</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Group by Cidades &#x2f; Acidentes &#x2f; Calendario</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <all_rows>N</all_rows>
+      <ignore_aggregate>N</ignore_aggregate>
+      <field_ignore/>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>grp</prefix>
+      <add_linenr>N</add_linenr>
+      <linenr_fieldname/>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>cidades_id</name>
+        </field>
+        <field>
+          <name>acidentes_id</name>
+        </field>
+        <field>
+          <name>calendario_id</name>
+        </field>
+      </group>
+      <fields>
+      </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Group by Cidades &#x2f; Acidentes &#x2f; Calendario &#x2f; Pessoas</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <all_rows>N</all_rows>
+      <ignore_aggregate>N</ignore_aggregate>
+      <field_ignore/>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>grp</prefix>
+      <add_linenr>N</add_linenr>
+      <linenr_fieldname/>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>cidades_id</name>
+        </field>
+        <field>
+          <name>acidentes_id</name>
+        </field>
+        <field>
+          <name>calendario_id</name>
+        </field>
+        <field>
+          <name>pessoas_id</name>
+        </field>
+      </group>
+      <fields>
+      </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1616,35 +2142,63 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
+        <rename/>
       </field>      <field>        <name>pesid</name>
+        <rename/>
       </field>      <field>        <name>data_inversa</name>
+        <rename/>
       </field>      <field>        <name>dia_semana</name>
+        <rename/>
       </field>      <field>        <name>horario</name>
+        <rename/>
       </field>      <field>        <name>uf</name>
+        <rename/>
       </field>      <field>        <name>br</name>
+        <rename/>
       </field>      <field>        <name>km</name>
+        <rename/>
       </field>      <field>        <name>municipio</name>
+        <rename/>
       </field>      <field>        <name>causa_acidente</name>
+        <rename/>
       </field>      <field>        <name>tipo_acidente</name>
+        <rename/>
       </field>      <field>        <name>classificacao_acidente</name>
+        <rename/>
       </field>      <field>        <name>fase_dia</name>
+        <rename/>
       </field>      <field>        <name>sentido_via</name>
+        <rename/>
       </field>      <field>        <name>condicao_metereologica</name>
+        <rename/>
       </field>      <field>        <name>tipo_pista</name>
+        <rename/>
       </field>      <field>        <name>tracado_via</name>
+        <rename/>
       </field>      <field>        <name>uso_solo</name>
+        <rename/>
       </field>      <field>        <name>id_veiculo</name>
+        <rename/>
       </field>      <field>        <name>tipo_veiculo</name>
+        <rename/>
       </field>      <field>        <name>marca</name>
+        <rename/>
       </field>      <field>        <name>ano_fabricacao_veiculo</name>
+        <rename/>
       </field>      <field>        <name>tipo_envolvido</name>
+        <rename/>
       </field>      <field>        <name>estado_fisico</name>
+        <rename/>
       </field>      <field>        <name>idade</name>
-      </field>      <field>        <name>sexoMod</name>
+        <rename/>
+      </field>      <field>        <name>sexoModificado</name>
         <rename>sexo</rename>
       </field>      <field>        <name>nacionalidade</name>
+        <rename/>
       </field>      <field>        <name>naturalidade</name>
+        <rename/>
       </field>      <field>        <name>regiao</name>
+        <rename/>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>    <cluster_schema/>
     <remotesteps>
@@ -1661,712 +2215,6 @@
     </step>
 
   <step>
-    <name>Sexo</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var sexoMod &#x3d; &#x22;N&#xe3;o Declarado&#x22;&#x3b;&#xd;&#xa;&#xd;&#xa;switch&#x28;sexo&#x29;&#xd;&#xa;&#x7b;&#xd;&#xa;	case &#x22;M&#x22;&#x3a;&#xd;&#xa;		sexoMod &#x3d; &#x22;Masculino&#x22;&#x3b;&#xd;&#xa;		break&#x3b;&#xd;&#xa;	case &#x22;F&#x22;&#x3a;&#xd;&#xa;		sexoMod &#x3d; &#x22;Feminino&#x22;&#x3b;&#xd;&#xa;		break&#x3b;&#xd;&#xa;	case &#x22;I&#x22;&#x3a;&#xd;&#xa;		sexoMod &#x3d; &#x22;Inv&#xe1;lido&#x22;&#x3b;&#xd;&#xa;	default&#x3a;&#xd;&#xa;		sexoMod &#x3d; &#x22;N&#xe3;o Declarado&#x22;&#xd;&#xa;&#x7d;&#x3b;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>sexoMod</name>
-        <rename>sexoMod</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>496</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Une CSV</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>352</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>quantidade_acidentes</name>
-    <type>Janino</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-       <formula><field_name>quantidade_acidentes</field_name>
-<formula_string>new Integer&#x28;1&#x29;</formula_string>
-<value_type>Integer</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>352</xloc>
-      <yloc>736</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>regiao</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <field_to_use>uf</field_to_use>
-    <target_field>regiao</target_field>
-    <non_match_default>&#x2a;&#x2a;</non_match_default>
-    <fields>
-      <field>
-        <source_value>AC</source_value>
-        <target_value>Norte</target_value>
-      </field>
-      <field>
-        <source_value>AL</source_value>
-        <target_value>Nordeste</target_value>
-      </field>
-      <field>
-        <source_value>AP</source_value>
-        <target_value>Norte</target_value>
-      </field>
-      <field>
-        <source_value>AM</source_value>
-        <target_value>Norte</target_value>
-      </field>
-      <field>
-        <source_value>BA</source_value>
-        <target_value>Nordeste</target_value>
-      </field>
-      <field>
-        <source_value>CE</source_value>
-        <target_value>Nordeste</target_value>
-      </field>
-      <field>
-        <source_value>DF</source_value>
-        <target_value>Centro-Oeste</target_value>
-      </field>
-      <field>
-        <source_value>ES</source_value>
-        <target_value>Sudeste</target_value>
-      </field>
-      <field>
-        <source_value>GO</source_value>
-        <target_value>Centro-Oeste</target_value>
-      </field>
-      <field>
-        <source_value>MA</source_value>
-        <target_value>Nordeste</target_value>
-      </field>
-      <field>
-        <source_value>MT</source_value>
-        <target_value>Centro-Oeste</target_value>
-      </field>
-      <field>
-        <source_value>MS</source_value>
-        <target_value>Centro-Oeste</target_value>
-      </field>
-      <field>
-        <source_value>MG</source_value>
-        <target_value>Sudeste</target_value>
-      </field>
-      <field>
-        <source_value>PA</source_value>
-        <target_value>Norte</target_value>
-      </field>
-      <field>
-        <source_value>PB</source_value>
-        <target_value>Nordeste</target_value>
-      </field>
-      <field>
-        <source_value>PR</source_value>
-        <target_value>Sul</target_value>
-      </field>
-      <field>
-        <source_value>PE</source_value>
-        <target_value>Nordeste</target_value>
-      </field>
-      <field>
-        <source_value>PI</source_value>
-        <target_value>Nordeste</target_value>
-      </field>
-      <field>
-        <source_value>RJ</source_value>
-        <target_value>Sudeste</target_value>
-      </field>
-      <field>
-        <source_value>RN</source_value>
-        <target_value>Nordeste</target_value>
-      </field>
-      <field>
-        <source_value>RS</source_value>
-        <target_value>Sul</target_value>
-      </field>
-      <field>
-        <source_value>RO</source_value>
-        <target_value>Norte</target_value>
-      </field>
-      <field>
-        <source_value>RR</source_value>
-        <target_value>Norte</target_value>
-      </field>
-      <field>
-        <source_value>SC</source_value>
-        <target_value>Sul</target_value>
-      </field>
-      <field>
-        <source_value>SP</source_value>
-        <target_value>Sudeste</target_value>
-      </field>
-      <field>
-        <source_value>SE</source_value>
-        <target_value>Nordeste</target_value>
-      </field>
-      <field>
-        <source_value>TO</source_value>
-        <target_value>Norte</target_value>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>tabfato_acidentes</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>PRF</connection>
-    <schema>dw</schema>
-    <table>tabfato_acidentes</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>cidades_id</column_name>
-          <stream_name>cidades_id</stream_name>
-        </field>
-        <field>
-          <column_name>acidentes_id</column_name>
-          <stream_name>acidentes_id</stream_name>
-        </field>
-        <field>
-          <column_name>quantidade_acidentes</column_name>
-          <stream_name>quantidade_acidentes</stream_name>
-        </field>
-        <field>
-          <column_name>calendario_id</column_name>
-          <stream_name>calendario_id</stream_name>
-        </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>176</xloc>
-      <yloc>736</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Tabela Fato</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>672</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Dimens&#xf5;es</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>480</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Dimensionar Acidentes</name>
-    <type>DimensionLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <schema>dw</schema>
-      <table>dim_acidentes</table>
-      <connection>PRF</connection>
-      <commit>100</commit>
-      <update>Y</update>
-      <fields>
-        <key>
-          <name>id</name>
-          <lookup>id</lookup>
-        </key>
-        <date>
-          <name/>
-          <from>date_from</from>
-          <to>date_to</to>
-        </date>
-        <field>
-          <name>horario</name>
-          <lookup>horario</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>br</name>
-          <lookup>br</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>km</name>
-          <lookup>km</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>causa_acidente</name>
-          <lookup>causa_acidente</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>tipo_acidente</name>
-          <lookup>tipo_acidente</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>classificacao_acidente</name>
-          <lookup>classificacao_acidente</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>sentido_via</name>
-          <lookup>sentido_via</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>condicao_metereologica</name>
-          <lookup>condicao_metereologica</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>tipo_pista</name>
-          <lookup>tipo_pista</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>tracado_via</name>
-          <lookup>tracado_via</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>uso_solo</name>
-          <lookup>uso_solo</lookup>
-          <update>Insert</update>
-        </field>
-        <return>
-          <name>acidentes_id</name>
-          <rename/>
-          <creation_method>tablemax</creation_method>
-          <use_autoinc>N</use_autoinc>
-          <version>version</version>
-        </return>
-      </fields>
-      <sequence/>
-      <min_year>1900</min_year>
-      <max_year>2199</max_year>
-      <cache_size>5000</cache_size>
-      <preload_cache>N</preload_cache>
-      <use_start_date_alternative>N</use_start_date_alternative>
-      <start_date_alternative>none</start_date_alternative>
-      <start_date_field_name/>
-      <useBatch>N</useBatch>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
-      <yloc>480</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Group by Cidades &#x2f; Acidentes &#x2f; Calendario</name>
-    <type>GroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <all_rows>N</all_rows>
-      <ignore_aggregate>N</ignore_aggregate>
-      <field_ignore/>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>grp</prefix>
-      <add_linenr>N</add_linenr>
-      <linenr_fieldname/>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>cidades_id</name>
-        </field>
-        <field>
-          <name>acidentes_id</name>
-        </field>
-        <field>
-          <name>calendario_id</name>
-        </field>
-      </group>
-      <fields>
-      </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>576</xloc>
-      <yloc>736</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Cria Datas</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <calculation>
-      <field_name>ano</field_name>
-      <calc_type>YEAR_OF_DATE</calc_type>
-      <field_a>data</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>4</value_length>
-      <value_precision>0</value_precision>
-      <remove>N</remove>
-      <conversion_mask>0</conversion_mask>
-      <decimal_symbol>.</decimal_symbol>
-      <grouping_symbol>,</grouping_symbol>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>mes</field_name>
-      <calc_type>MONTH_OF_DATE</calc_type>
-      <field_a>data</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>2</value_length>
-      <value_precision>0</value_precision>
-      <remove>N</remove>
-      <conversion_mask>0</conversion_mask>
-      <decimal_symbol>.</decimal_symbol>
-      <grouping_symbol>,</grouping_symbol>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>dia_do_ano</field_name>
-      <calc_type>DAY_OF_YEAR</calc_type>
-      <field_a>data</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>3</value_length>
-      <value_precision>0</value_precision>
-      <remove>N</remove>
-      <conversion_mask>0</conversion_mask>
-      <decimal_symbol>.</decimal_symbol>
-      <grouping_symbol>,</grouping_symbol>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>dia_do_mes</field_name>
-      <calc_type>DAY_OF_MONTH</calc_type>
-      <field_a>data</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>2</value_length>
-      <value_precision>0</value_precision>
-      <remove>N</remove>
-      <conversion_mask>0</conversion_mask>
-      <decimal_symbol>.</decimal_symbol>
-      <grouping_symbol>,</grouping_symbol>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>semana_do_ano</field_name>
-      <calc_type>WEEK_OF_YEAR</calc_type>
-      <field_a>data</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>2</value_length>
-      <value_precision>0</value_precision>
-      <remove>N</remove>
-      <conversion_mask>0</conversion_mask>
-      <decimal_symbol>.</decimal_symbol>
-      <grouping_symbol>,</grouping_symbol>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>dia_da_semana</field_name>
-      <calc_type>DAY_OF_WEEK</calc_type>
-      <field_a>data</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Dimensionar Calendario</name>
-    <type>DimensionLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <schema>dw</schema>
-      <table>dim_calendario</table>
-      <connection>PRF</connection>
-      <commit>100</commit>
-      <update>Y</update>
-      <fields>
-        <key>
-          <name>data</name>
-          <lookup>data</lookup>
-        </key>
-        <date>
-          <name/>
-          <from>date_from</from>
-          <to>date_to</to>
-        </date>
-        <field>
-          <name>dia_semana</name>
-          <lookup>dia_semana</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>ano</name>
-          <lookup>ano</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>mes</name>
-          <lookup>mes</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>dia_do_ano</name>
-          <lookup>dia_do_ano</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>dia_do_mes</name>
-          <lookup>dia_do_mes</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>semana_do_ano</name>
-          <lookup>semana_do_ano</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>dia_da_semana</name>
-          <lookup>dia_da_semana</lookup>
-          <update>Insert</update>
-        </field>
-        <return>
-          <name>calendario_id</name>
-          <rename/>
-          <creation_method>tablemax</creation_method>
-          <use_autoinc>N</use_autoinc>
-          <version>version</version>
-        </return>
-      </fields>
-      <sequence/>
-      <min_year>1900</min_year>
-      <max_year>2199</max_year>
-      <cache_size>5000</cache_size>
-      <preload_cache>N</preload_cache>
-      <use_start_date_alternative>N</use_start_date_alternative>
-      <start_date_alternative>none</start_date_alternative>
-      <start_date_field_name/>
-      <useBatch>N</useBatch>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
-      <yloc>576</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
     <name>Separa Campos 2</name>
     <type>SelectValues</type>
     <description/>
@@ -2378,69 +2226,37 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
-        <rename/>
       </field>      <field>        <name>pesid</name>
-        <rename/>
       </field>      <field>        <name>data_inversa</name>
-        <rename/>
       </field>      <field>        <name>dia_semana</name>
-        <rename/>
       </field>      <field>        <name>horario</name>
-        <rename/>
       </field>      <field>        <name>uf</name>
-        <rename/>
       </field>      <field>        <name>br</name>
-        <rename/>
       </field>      <field>        <name>km</name>
-        <rename/>
       </field>      <field>        <name>municipio</name>
-        <rename/>
       </field>      <field>        <name>causa_acidente</name>
-        <rename/>
       </field>      <field>        <name>tipo_acidente</name>
-        <rename/>
       </field>      <field>        <name>classificacao_acidente</name>
-        <rename/>
       </field>      <field>        <name>fase_dia</name>
-        <rename/>
       </field>      <field>        <name>sentido_via</name>
-        <rename/>
       </field>      <field>        <name>condicao_metereologica</name>
-        <rename/>
       </field>      <field>        <name>tipo_pista</name>
-        <rename/>
       </field>      <field>        <name>tracado_via</name>
-        <rename/>
       </field>      <field>        <name>uso_solo</name>
-        <rename/>
       </field>      <field>        <name>id_veiculo</name>
-        <rename/>
       </field>      <field>        <name>tipo_veiculo</name>
-        <rename/>
       </field>      <field>        <name>marca</name>
-        <rename/>
       </field>      <field>        <name>ano_fabricacao_veiculo</name>
-        <rename/>
       </field>      <field>        <name>tipo_envolvido</name>
-        <rename/>
       </field>      <field>        <name>estado_fisico</name>
-        <rename/>
       </field>      <field>        <name>idade</name>
-        <rename/>
       </field>      <field>        <name>sexo</name>
-        <rename/>
       </field>      <field>        <name>nacionalidade</name>
-        <rename/>
       </field>      <field>        <name>naturalidade</name>
-        <rename/>
       </field>      <field>        <name>regiao</name>
-        <rename/>
       </field>      <field>        <name>traco</name>
-        <rename/>
       </field>      <field>        <name>uf_cidade</name>
-        <rename/>
       </field>      <field>        <name>dataMod</name>
-        <rename/>
       </field>        <select_unspecified>N</select_unspecified>
       <meta>        <name>id</name>
         <rename>id</rename>
@@ -2907,8 +2723,8 @@
     </step>
 
   <step>
-    <name>Dimensionar pessoas</name>
-    <type>DimensionLookup</type>
+    <name>Sexo</name>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2917,68 +2733,42 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-      <schema>dw</schema>
-      <table>dim_pessoas</table>
-      <connection>PRF</connection>
-      <commit>100</commit>
-      <update>Y</update>
-      <fields>
-        <key>
-          <name>pesid</name>
-          <lookup>pesid</lookup>
-        </key>
-        <date>
-          <name/>
-          <from>date_from</from>
-          <to>date_to</to>
-        </date>
-        <field>
-          <name>tipo_envolvido</name>
-          <lookup>tipo_envolvido</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>estado_fisico</name>
-          <lookup>estado_fisico</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>idade</name>
-          <lookup>idade</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>sexo</name>
-          <lookup>sexo</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>nacionalidade</name>
-          <lookup>nacionalidade</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>naturalidade</name>
-          <lookup>naturalidade</lookup>
-          <update>Insert</update>
-        </field>
-        <return>
-          <name>pessoas_id</name>
-          <rename/>
-          <creation_method>tablemax</creation_method>
-          <use_autoinc>N</use_autoinc>
-          <version>version</version>
-        </return>
-      </fields>
-      <sequence/>
-      <min_year>1900</min_year>
-      <max_year>2199</max_year>
-      <cache_size>5000</cache_size>
-      <preload_cache>N</preload_cache>
-      <use_start_date_alternative>N</use_start_date_alternative>
-      <start_date_alternative>none</start_date_alternative>
-      <start_date_field_name/>
-      <useBatch>N</useBatch>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#xd;&#xa;function getSexo&#x28;sexoVerifica&#x29; &#x7b;&#xd;&#xa;	var sexoMod &#x3d; &#x22;N&#xe3;o Declarado&#x22;&#x3b;&#xd;&#xa;	if&#x28;sexoVerifica &#x21;&#x3d; null&#x29; &#x7b;&#xd;&#xa;		switch&#x28;sexoVerifica.trim&#x28;&#x29;&#x29;	&#x7b;&#xd;&#xa;			case &#x22;M&#x22;&#x3a;&#xd;&#xa;				sexoMod &#x3d; &#x22;Masculino&#x22;&#x3b;&#xd;&#xa;				break&#x3b;&#xd;&#xa;			case &#x22;F&#x22;&#x3a;&#xd;&#xa;				sexoMod &#x3d; &#x22;Feminino&#x22;&#x3b;&#xd;&#xa;				break&#x3b;&#xd;&#xa;			case &#x22;I&#x22;&#x3a;&#xd;&#xa;				sexoMod &#x3d; &#x22;Inv&#xe1;lido&#x22;&#x3b;&#xd;&#xa;		&#x7d;&#x3b;&#xd;&#xa;	&#x7d;&#x3b;&#xd;&#xa;	return sexoMod&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;var sexoModificado &#x3d; getSexo&#x28;sexo&#x29;&#x3b;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>sexoModificado</name>
+        <rename>sexoModificado</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Tabela Fato</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2987,15 +2777,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
+      <xloc>768</xloc>
       <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Group by Cidades &#x2f; Acidentes &#x2f; Calendario &#x2f; Pessoas</name>
-    <type>GroupBy</type>
+    <name>Une CSV</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3004,30 +2794,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-      <all_rows>N</all_rows>
-      <ignore_aggregate>N</ignore_aggregate>
-      <field_ignore/>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>grp</prefix>
-      <add_linenr>N</add_linenr>
-      <linenr_fieldname/>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>cidades_id</name>
-        </field>
-        <field>
-          <name>acidentes_id</name>
-        </field>
-        <field>
-          <name>calendario_id</name>
-        </field>
-        <field>
-          <name>pessoas_id</name>
-        </field>
-      </group>
-      <fields>
-      </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -3036,8 +2802,40 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>592</yloc>
+      <xloc>352</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>quantidade_acidentes</name>
+    <type>Janino</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+       <formula><field_name>quantidade_acidentes</field_name>
+<formula_string>new Integer&#x28;1&#x29;</formula_string>
+<value_type>Integer</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -3070,6 +2868,204 @@
     <GUI>
       <xloc>352</xloc>
       <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>regiao</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>uf</field_to_use>
+    <target_field>regiao</target_field>
+    <non_match_default>&#x2a;&#x2a;</non_match_default>
+    <fields>
+      <field>
+        <source_value>AC</source_value>
+        <target_value>Norte</target_value>
+      </field>
+      <field>
+        <source_value>AL</source_value>
+        <target_value>Nordeste</target_value>
+      </field>
+      <field>
+        <source_value>AP</source_value>
+        <target_value>Norte</target_value>
+      </field>
+      <field>
+        <source_value>AM</source_value>
+        <target_value>Norte</target_value>
+      </field>
+      <field>
+        <source_value>BA</source_value>
+        <target_value>Nordeste</target_value>
+      </field>
+      <field>
+        <source_value>CE</source_value>
+        <target_value>Nordeste</target_value>
+      </field>
+      <field>
+        <source_value>DF</source_value>
+        <target_value>Centro-Oeste</target_value>
+      </field>
+      <field>
+        <source_value>ES</source_value>
+        <target_value>Sudeste</target_value>
+      </field>
+      <field>
+        <source_value>GO</source_value>
+        <target_value>Centro-Oeste</target_value>
+      </field>
+      <field>
+        <source_value>MA</source_value>
+        <target_value>Nordeste</target_value>
+      </field>
+      <field>
+        <source_value>MT</source_value>
+        <target_value>Centro-Oeste</target_value>
+      </field>
+      <field>
+        <source_value>MS</source_value>
+        <target_value>Centro-Oeste</target_value>
+      </field>
+      <field>
+        <source_value>MG</source_value>
+        <target_value>Sudeste</target_value>
+      </field>
+      <field>
+        <source_value>PA</source_value>
+        <target_value>Norte</target_value>
+      </field>
+      <field>
+        <source_value>PB</source_value>
+        <target_value>Nordeste</target_value>
+      </field>
+      <field>
+        <source_value>PR</source_value>
+        <target_value>Sul</target_value>
+      </field>
+      <field>
+        <source_value>PE</source_value>
+        <target_value>Nordeste</target_value>
+      </field>
+      <field>
+        <source_value>PI</source_value>
+        <target_value>Nordeste</target_value>
+      </field>
+      <field>
+        <source_value>RJ</source_value>
+        <target_value>Sudeste</target_value>
+      </field>
+      <field>
+        <source_value>RN</source_value>
+        <target_value>Nordeste</target_value>
+      </field>
+      <field>
+        <source_value>RS</source_value>
+        <target_value>Sul</target_value>
+      </field>
+      <field>
+        <source_value>RO</source_value>
+        <target_value>Norte</target_value>
+      </field>
+      <field>
+        <source_value>RR</source_value>
+        <target_value>Norte</target_value>
+      </field>
+      <field>
+        <source_value>SC</source_value>
+        <target_value>Sul</target_value>
+      </field>
+      <field>
+        <source_value>SP</source_value>
+        <target_value>Sudeste</target_value>
+      </field>
+      <field>
+        <source_value>SE</source_value>
+        <target_value>Nordeste</target_value>
+      </field>
+      <field>
+        <source_value>TO</source_value>
+        <target_value>Norte</target_value>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>tabfato_acidentes</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PRF</connection>
+    <schema>dw</schema>
+    <table>tabfato_acidentes</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>cidades_id</column_name>
+          <stream_name>cidades_id</stream_name>
+        </field>
+        <field>
+          <column_name>acidentes_id</column_name>
+          <stream_name>acidentes_id</stream_name>
+        </field>
+        <field>
+          <column_name>quantidade_acidentes</column_name>
+          <stream_name>quantidade_acidentes</stream_name>
+        </field>
+        <field>
+          <column_name>calendario_id</column_name>
+          <stream_name>calendario_id</stream_name>
+        </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
