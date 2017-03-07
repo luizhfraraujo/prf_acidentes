@@ -18,7 +18,7 @@
     </Hierarchy>
   </Dimension>
   <Dimension type="StandardDimension" visible="true" name="Pessoas">
-    <Hierarchy name="tipo" visible="true" hasAll="false" primaryKey="pessoas_id">
+    <Hierarchy name="tipo" visible="true" hasAll="true" primaryKey="pessoas_id">
       <Table name="dim_pessoas" schema="dw" alias="">
       </Table>
       <Level name="tipo_envolvimento" visible="true" column="tipo_envolvido" uniqueMembers="false" caption="Tipo Envolvimento">
